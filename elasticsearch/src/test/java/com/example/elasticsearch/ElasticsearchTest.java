@@ -1,11 +1,12 @@
 package com.example.elasticsearch;
 
-import com.example.elasticsearch.constant.EsFiledsIndexConstant;
-import com.example.elasticsearch.constant.EsFiledsTypeConstant;
-import com.example.elasticsearch.pojo.es.EsData;
-import com.example.elasticsearch.pojo.es.EsField;
-import com.example.elasticsearch.pojo.es.EsType;
-import com.example.elasticsearch.repository.ElasticsearchRepository;
+import com.example.myes.constant.EsFiledsIndexConstant;
+import com.example.myes.constant.EsFiledsTypeConstant;
+import com.example.myes.pojo.es.EsData;
+import com.example.myes.pojo.es.EsField;
+import com.example.myes.pojo.es.EsQuery;
+import com.example.myes.pojo.es.EsType;
+import com.example.myes.repository.ElasticsearchRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -34,9 +35,9 @@ public class ElasticsearchTest {
 	@Before
 	public void before() {
 
-		index = "hello";
+		index = "test";
 
-		type = "world!";
+		type = "test2";
 	}
 
 	@Test
@@ -82,7 +83,7 @@ public class ElasticsearchTest {
 	@Test
     public void insertData() {
 	    Map<String, String> map = new HashMap<>(1);
-	    map.put("name", "张三");
+	    map.put("name", "这是一段测试的文字5");
 
         EsData data = new EsData(index, type, map);
 
@@ -112,7 +113,7 @@ public class ElasticsearchTest {
 
     @Test
     public void matchQuery() {
-        System.out.println(elastcisearch.matchAllQuery(null, null));
+        System.out.println(elastcisearch.matchAllQuery(null, new EsQuery().setPageNo(1).setPageSize(10)));
     }
 
     @Test
