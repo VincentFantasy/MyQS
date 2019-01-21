@@ -104,7 +104,7 @@ public class ElasticsearchTest {
 
     @Test
     public void deleteData() {
-        String id = "AWgRtNQRjdnS1tIfKlj1";
+        String id = "AWgl3RQpM7W8kUBC4GrB";
 
         EsData data = new EsData(index, type, id);
 
@@ -113,7 +113,7 @@ public class ElasticsearchTest {
 
     @Test
     public void matchQuery() {
-        System.out.println(elastcisearch.matchAllQuery(null, new EsQuery().setPageNo(1).setPageSize(10)));
+        System.out.println(elastcisearch.matchAllQuery(new EsQuery().setPageNo(1).setPageSize(10)));
     }
 
     @Test
